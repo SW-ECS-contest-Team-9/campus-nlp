@@ -44,6 +44,8 @@ def main():
     torch.set_num_threads(a.threads); random.seed(0); torch.manual_seed(0)
     tok = AutoTokenizer.from_pretrained(MODEL_ID)
     model = AutoModelForCausalLM.from_pretrained(MODEL_ID, torch_dtype=torch.float32, attn_implementation='eager')
+    if len(tok) > model.get_input_embeddings().weight.shape[0]:  # 점검용 무작위 소형 모델만 해당(실제 270M 은 그대로)
+        model.resize_token_embeddings(len(tok))
     if a.lora:
         from peft import LoraConfig, get_peft_model
         model = get_peft_model(model, LoraConfig(r=16, lora_alpha=32, lora_dropout=0.05, target_modules=['q_proj', 'k_proj', 'v_proj', 'o_proj', 'gate_proj', 'up_proj', 'down_proj'], task_type='CAUSAL_LM'))

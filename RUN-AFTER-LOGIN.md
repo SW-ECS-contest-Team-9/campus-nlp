@@ -32,7 +32,7 @@ LoRA 로 하려면 끝에 `--lora`.
 bash /c/campus-nlp/android/s21_bench.sh /c/campus-nlp/models/gemma3-270m-route-Q4_K_M.gguf
 THREADS=2 bash /c/campus-nlp/android/s21_bench.sh /c/campus-nlp/models/gemma3-270m-route-Q4_K_M.gguf
 ```
-`android/bin/` 의 arm64 실행 파일(llama.cpp b11617 기준 소스, NDK 27)이 `/data/local/tmp/campus-nlp` 에 올라가 돈다. 끝나면 `adb shell rm -r /data/local/tmp/campus-nlp`.
+`android/bin/` 의 arm64 실행 파일(llama.cpp 소스 529ac89, NDK 27)이 `/data/local/tmp/campus-nlp` 에 올라가 돈다. 끝나면 `adb shell rm -r /data/local/tmp/campus-nlp`.
 
 ## 참고
 - 흐름 점검은 이미 했다: 게이트 없는 무작위 소형 Gemma3(`hf-internal-testing/tiny-random-Gemma3ForCausalLM`)로 학습→GGUF→평가가 끝까지 돈다(점수 의미 없음).

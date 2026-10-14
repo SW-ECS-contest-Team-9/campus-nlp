@@ -1,0 +1,254 @@
+0 15967 {   "dest": {     "name": "북악관",     "floor": "B1"   },   "origin": {     "current": true,     "name": "북악관",     "floor
+1 4555 {"dest": {"name": "청운관", "floor": "1층"}, "origin": {"current": true, "name": "청운관", "floor": "1층"}, "waypoints": ["청운관 입
+2 8155 {"dest": {"name": "한림관", "floor": "B1"}, "origin": {"current": true, "name": "한림관", "floor": "B1"}, "waypoints": ["한림관",
+3 7842 {"dest": {"name": "혜인관", "floor": "1층"}, "origin": {"current": true, "name": "지하통로 입구: 혜인관 (연결 층 지하 1층)","floor": "1층"},
+4 6507 {"dest": {"name": "유담관", "floor": "3F"}, "origin": {"current": true, "name": "유담관", "floor": "3F"}, "waypoints": ["유담관 입
+5 4182 {"dest": {"name": "은주관", "floor": "3F"}, "origin": {"current": true, "name": "은주관", "floor": "3F"}, "waypoints": ["은주1관 
+6 5841 {   "dest": {     "name": "문예관 입구(1)",     "floor": "1층"   },   "origin": {     "current": true,     "name": "문예관 입구(2)"
+7 5093 {"dest": {"name": "대일관 입구(1)", "floor": "B1"}, "origin": {"current": true, "name": "대일관 입구(2)", "floor": "B1"}, "waypoin
+8 7243 {"dest": {"name": "본관", "floor": "2"}, "origin": {"current": true, "name": "본관", "floor": "2"}, "waypoints": ["본관", "서경대
+9 10280 {"dest": {"name": "상승관 입구(마당 쪽, 추정)", "floor": "B1"}, "origin": {"current": true, "name": "상승관 입구(마당 쪽, 추정)", "floor": "
+10 6635 {"dest": {"name": "수인관", "floor": "B1"}, "origin": {"current": true, "name": "수인관", "floor": "B1"}, "waypoints": ["수인관",
+11 7060 {"dest": {"name": "외국인 생활관", "floor": "B1"}, "origin": {"current": true, "name": "외국인 생활관", "floor": "B1"}, "waypoints":
+12 6431 {"dest": {"name": "청운관", "floor": "B1"}, "origin": {"current": true, "name": "청운관", "floor": "B1"}, "waypoints": ["공연실습소
+13 5878 {"dest": {"name": "공연실습소", "floor": "3F"}, "origin": {"current": true, "name": "공연실습소", "floor": "3F"}, "waypoints": ["공
+14 7780 {"dest": {"name": "북악관", "floor": "B1"}, "origin": {"current": true, "name": "북악관", "floor": "B1"}, "waypoints": ["북악관 입
+15 4367 {"dest": {"name": "청운관", "floor": "1층"}, "origin": {"current": true, "name": "청운관", "floor": "1층"}, "waypoints": ["청운관 입
+16 7380 {"dest": {"name": "한림관", "floor": "B1"}, "origin": {"current": true, "name": "본관", "floor": "5"}, "waypoints": ["한림관", "
+17 6845 {"dest": {"name": "유담관 입구(1) = 6층 로비 (분수 광장)", "floor": "6층"}, "origin": {"current": true, "name": "유담관 입구(1) = 6층 로비 (분
+18 5600 {"dest": {"name": "은주1관 입구(1)", "floor": "1"}, "origin": {"current": true, "name": "은주1관 입구(2)", "floor": "2"}, "waypoin
+19 5004 {"dest": {"name": "은주2관 입구(1)", "floor": "3F"}, "origin": {"current": true, "name": "은주2관 입구(1)", "floor": "3F"}, "waypo
+20 4052 {"dest": {"name": "북악관", "floor": "B1"}, "origin": {"current": true, "name": "북악관", "floor": "B1"}, "waypoints": ["북악관 입
+21 3900 {"dest": {"name": "혜인관", "floor": "1층"}, "origin": {"current": true, "name": "혜인관", "floor": "1층"}, "waypoints": ["혜인관 입
+22 6086 {   "dest": {     "name": "대일관 입구(2)",     "floor": "2"   },   "origin": {     "current": true,     "name": "대일관 입구(3) =
+23 7181 {   "dest": {     "name": "서경대본관 2115번 버스정류장",     "floor": "2115번 버스정류장"   },   "origin": {     "current": true,     "n
+24 7410 {"dest": {"name": "문예관 입구(1)", "floor": "1"}, "origin": {"current": true, "name": "문예관 입구(2)", "floor": "1"}, "waypoints
+25 5691 {"dest": {"name": "청운관", "floor": "1층"}, "origin": {"current": true, "name": "청운관", "floor": "1층"}, "waypoints": ["청운관 입
+26 8924 {"dest": {"name": "한림관", "floor": "B1"}, "origin": {"current": true, "name": "본관", "floor": "5"}, "waypoints": ["한림관", "
+27 11305 {"dest": {"name": "유담관 입구(1) = 6층 로비 (분수 광장)", "floor": "6"}, "origin": {"current": true, "name": "유담관 입구(1) = 6층 로비 (분수
+28 9958 {"dest": {"name": "북악관 입구(3)", "floor": "3F"}, "origin": {"current": true, "name": "북악관", "floor": "B1"}, "waypoints": [
+29 6121 {"dest": {"name": "청운관 입구(1층, 현관 위)", "floor": "5층"}, "origin": {"current": true, "name": "청운관 입구(1층, 현관 위)", "floor": "
+30 5455 {"dest": {"name": "한림관 입구", "floor": "10"}, "origin": {"current": true, "name": "한림관 입구", "floor": "10"}, "waypoints": [
+31 6576 {"dest": {"name": "유담관", "floor": "1"}, "origin": {"current": true, "name": "유담관", "floor": "1"}, "waypoints": ["유담관", "
+32 6855 {"dest": {"name": "유담관", "floor": "2"}, "origin": {"current": true, "name": "유담관", "floor": "2"}, "waypoints": ["유담관 입구(
+33 5701 {"dest": {"name": "문예관", "floor": "B1"}, "origin": {"current": true, "name": "문예관", "floor": "B1"}, "waypoints": ["문예관 입
+34 5730 {   "dest": {     "name": "대일관",     "floor": "B2"   },   "origin": {     "current": true,     "name": "대일관",     "floor
+35 6174 {"dest": {"name": "혜인관 1층 로비 문 (현관 계단 위)", "floor": "2층"}, "origin": {"current": true, "name": "혜인관 1층 로비 문 (현관 계단 위)", 
+36 4554 {"dest": {"name": "본관 입구(1)", "floor": "7"}, "origin": {"current": true, "name": "본관 입구(1)", "floor": "7"}, "waypoints":
+37 4329 {"dest": {"name": "은주관", "floor": "6"}, "origin": {"current": true, "name": "은주관", "floor": "6"}, "waypoints": ["은주관", "
+38 2951 {"dest": {"name": "북악관", "floor": "1"}, "origin": {"current": true, "name": "북악관", "floor": "1"}, "waypoints": ["북악관", "
+39 4325 {"dest": {"name": "청운관 입구(1층, 현관 위)", "floor": "11"}, "origin": {"current": true, "name": "청운관 입구(1층, 현관 위)", "floor": "
+40 4115 {"dest": {"name": "한림관 입구", "floor": "16"}, "origin": {"current": true, "name": "서경대본관 1164번 버스정류장", "floor": "1164"}, "
+41 5234 {"dest": {"name": "문예관 입구(1)", "floor": "15"}, "origin": {"current": true, "name": "문예관 입구(1)", "floor": "15"}, "waypoin
+42 3784 {"dest": {"name": "유담관 입구(3)", "floor": "9"}, "origin": {"current": true, "name": "유담관 입구(3)", "floor": "9"}, "waypoints
+43 3849 {"dest": {"name": "북악관 입구(1) = 정문", "floor": "1"}, "origin": {"current": true, "name": "북악관", "floor": "1"}, "waypoints"
+44 3198 {"dest": {"name": "혜인관", "floor": "1"}, "origin": {"current": true, "name": "혜인관", "floor": "1"}, "waypoints": ["혜인관 1층 
+45 3679 {"dest": {"name": "대일관 입구(1)", "floor": "7"}, "origin": {"current": true, "name": "대일관 입구(2)", "floor": "2"}, "waypoints
+46 3922 {"dest": {"name": "북악관 입구(4) = GS25 출입구", "floor": "4F"}, "origin": {"current": true, "name": "북악관", "floor": "B1"}, "wa
+47 3545 {"dest": {"name": "청운관 입구(1층, 현관 위)", "floor": "4F"}, "origin": {"current": true, "name": "청운관 입구(1층, 현관 위)", "floor": "
+48 3492 {"dest": {"name": "본관", "floor": "1"}, "origin": {"current": true, "name": "본관", "floor": "1"}, "waypoints": ["본관", "서경대
+49 4070 {"dest": {"name": "은주관", "floor": ">9"}, "origin": {"current": true, "name": "은주관", "floor": ">9"}, "waypoints": ["은주관",
+50 3229 {"dest": {"name": "한림관 입구", "floor": "20"}, "origin": {"current": true, "name": "한림관 입구", "floor": "20"}, "waypoints": [
+51 3262 {"dest": {"name": "북악관", "floor": "삼층"}, "origin": {"current": true, "name": "북악관", "floor": "B1"}, "waypoints": ["북악관 입
+52 2975 {"dest": {"name": "청운관", "floor": "1층"}, "origin": {"current": true, "name": "청운관", "floor": "1층"}, "waypoints": ["청운관 입
+53 4581 {"dest": {"name": "문예관 입구(1)", "floor": "3F"}, "origin": {"current": true, "name": "문예관 입구(2)", "floor": "3F"}, "waypoin
+54 4826 {"dest": {"name": "편의점 (북악관 B1)", "floor": "B1"}, "origin": {"current": true, "name": "북악관", "floor": "B1"}, "waypoints"
+55 3931 {"dest": {"name": "편의점 (북악관 B1)", "floor": "B1"}, "origin": {"current": true, "name": "북악관", "floor": "B1"}, "waypoints"
+56 3703 {"dest": {"name": "북악관 입구(4) = GS25 출입구", "floor": "B1"}, "origin": {"current": true, "name": "북악관 입구(4) = GS25 출입구", "f
+57 4759 {"dest": {"name": "청운관", "floor": "B1"}, "origin": {"current": true, "name": "청운관", "floor": "B1"}, "waypoints": ["공연실습소
+58 3135 {"dest": {"name": "라운지 (북악관 B1)", "floor": "B1"}, "origin": {"current": true, "name": "라운지 (북악관 B1)", "floor": "B1"}, "w
+59 4377 {"dest": {"name": "한림관", "floor": "B1"}, "origin": {"current": true, "name": "한림관", "floor": "B1"}, "waypoints": ["공연실습소
+60 2832 {"dest": {"name": "북악관", "floor": "B1"}, "origin": {"current": true, "name": "북악관", "floor": "B1"}, "waypoints": ["북악관 입
+61 3256 {"dest": {"name": "북악관", "floor": "B1"}, "origin": {"current": true, "name": "북악관", "floor": "B1"}, "waypoints": ["북악관 입
+62 5401 {"dest": {"name": "서문(후문) = 서문 주차장 출입구 (옹벽의 터널 입구)", "floor": "B1"}, "origin": {"current": true, "name": "서문(후문) = 서문 주차
+63 3426 {"dest": {"name": "서문(후문) = 서문 주차장 출입구 (옹벽의 터널 입구)", "floor": "B1"}, "origin": {"current": true, "name": "서문(후문) = 서문 주차
+64 4510 {"dest": {"name": "유담관 입구(1) = 6층 로비 (분수 광장)", "floor": "6층"}, "origin": {"current": true, "name": "유담관 입구(1) = 6층 로비 (분
+65 4221 {"dest": {"name": "유담관 입구(1) = 6층 로비 (분수 광장)", "floor": "6"}, "origin": {"current": true, "name": "유담관 입구(1) = 6층 로비 (분수
+66 3799 {"dest": {"name": "서경대본관 1164번 버스정류장", "floor": "1164"}, "origin": {"current": true, "name": "서경대본관 2115번 버스정류장", "floor
+67 4214 {"dest": {"name": "서경대본관 2115번 버스정류장", "floor": "B1"}, "origin": {"current": true, "name": "서경대본관 1164번 버스정류장", "floor":
+68 3733 {"dest": {"name": "서경대본관 1164번 버스정류장", "floor": "B1"}, "origin": {"current": true, "name": "서경대본관 2115번 버스정류장", "floor":
+69 5819 {"dest": {"name": "서문(후문) = 서문 주차장 출입구 (옹벽의 터널 입구)", "floor": "2층"}, "origin": {"current": true, "name": "서문(후문) = 서문 주차
+70 4653 {"dest": {"name": "하단 주차장 입구 (사용자: 제1주차장 / 현장 표지판 P2 / 학교 표지 \"제1주차장 출입구\")", "floor": "3F"}, "origin": {"current": true
+71 4431 {"dest": {"name": "운동장 지하 1층 주차장 (이름·자리 추정)", "floor": "1층"}, "origin": {"current": true, "name": "운동장 지하 1층 주차장 (이름·자리 
+72 5716 {"dest": {"name": "운동장 지하 2층 주차장 (이름·자리 추정)", "floor": "2층"}, "origin": {"current": true, "name": "운동장 지하 2층 주차장 (이름·자리 
+73 3390 {"dest": {"name": "대일관", "floor": "B1"}, "origin": {"current": true, "name": "대일관", "floor": "B1"}, "waypoints": ["대일관 입
+74 3289 {"dest": {"name": "대일관 입구(3) = 뒷문", "floor": "B1"}, "origin": {"current": true, "name": "대일관 입구(3) = 뒷문", "floor": "B1"}
+75 7781 {"dest": {"name": "본관", "floor": "]').destination = '본관 한림관 연결통로' if not destination else destination; return destinatio
+76 6094 {"dest": {"name": "한림관", "floor": "3F"}, "origin": {"current": true, "name": "한림관", "floor": "3F"}, "waypoints": ["은주1관 
+77 8301 {"dest": {"name": "북악관 입구(2)", "floor": "2"}, "origin": {"current": true, "name": "북악관 입구(3)", "floor": "3"}, "waypoints
+78 3634 {"dest": {"name": "북악관 입구(3)", "floor": "B1"}, "origin": {"current": true, "name": "북악관 입구(3)", "floor": "B1"}, "waypoin
+79 4758 {"dest": {"name": "대일관 입구(1)", "floor": "1"}, "origin": {"current": true, "name": "대일관 입구(2)", "floor": "2"}, "waypoints
+80 4401 {"dest": {"name": "은주1관 입구(2)", "floor": "2"}, "origin": {"current": true, "name": "은주1관 입구(1)", "floor": "1"}, "waypoin
+81 5125 {"dest": {"name": "은주2관 입구(1)", "floor": "1"}, "origin": {"current": true, "name": "은주2관 입구(1)", "floor": "1"}, "waypoin
+82 3987 {"dest": {"name": "문예관 입구(2)", "floor": "2"}, "origin": {"current": true, "name": "문예관 입구(1)", "floor": "1"}, "waypoints
+83 3990 {"dest": {"name": "유담관 입구(3)", "floor": "3F"}, "origin": {"current": true, "name": "유담관 입구(3)", "floor": "3F"}, "waypoin
+84 5228 {"dest": {"name": "혜인관 입구(2)", "floor": "B1"}, "origin": {"current": true, "name": "혜인관 입구(1)", "floor": "1"}, "waypoint
+85 3301 {"dest": {"name": "본관 입구(1)", "floor": "1"}, "origin": {"current": true, "name": "본관 입구(1)", "floor": "1"}, "waypoints":
+86 3860 {"dest": {"name": "북악관 입구(1) = 정문", "floor": "1"}, "origin": {"current": true, "name": "북악관 입구(2)", "floor": "2"}, "wayp
+87 3149 {"dest": {"name": "청운관", "floor": "1층"}, "origin": {"current": true, "name": "청운관", "floor": "1층"}, "waypoints": ["청운관 입
+88 3420 {"dest": {"name": "한림관 입구", "floor": "2"}, "origin": {"current": true, "name": "한림관 입구", "floor": "2"}, "waypoints": ["한
+89 4334 {"dest": {"name": "북악관 입구(1) = 정문", "floor": "1"}, "origin": {"current": true, "name": "북악관 입구(1) = 정문", "floor": "1"}, 
+90 3167 {"dest": {"name": "정문", "floor": "1"}, "origin": {"current": true, "name": "북악관 입구(1) = 정문", "floor": "1"}, "waypoints":
+91 3901 {"dest": {"name": "정문", "floor": "B1"}, "origin": {"current": true, "name": "북악관 입구(1) = 정문", "floor": "B1"}, "waypoints
+92 6246 {   "dest": {     "name": "서문(후문) = 서문 주차장 출입구 (옹벽의 터널 입구)",     "floor": "3F"   },   "origin": {     "current": true,  
+93 6015 {"dest": {"name": "서문(후문) = 서문 주차장 출입구 (옹벽의 터널 입구)", "floor": "1층"}, "origin": {"current": true, "name": "서문(후문) = 서문 주차
+94 4288 {"dest": {"name": "서경대본관 2115번 버스정류장", "floor": "B1"}, "origin": {"current": true, "name": "서경대본관 1164번 버스정류장", "floor":
+95 3975 {"dest": {"name": "서경대본관 2115번 버스정류장", "floor": "B1"}, "origin": {"current": true, "name": "서경대본관 1164번 버스정류장", "floor":
+96 4782 {   "dest": {     "name": "청운관",     "floor": "2층"   },   "origin": {     "current": true,     "name": "청운관",     "floor
+97 5227 {"dest": {"name": "지하통로 입구: 혜인관 (연결 층 지하 1층)", "floor": "1층"}, "origin": {"current": true, "name": "지하통로 입구: 혜인관 (연결 층 지
+98 3858 {"dest": {"name": "서경대본관 2115번 버스정류장", "floor": "B1"}, "origin": {"current": true, "name": "서경대본관 1164번 버스정류장", "floor":
+99 3164 {"dest": {"name": "청운관", "floor": "B1"}, "origin": {"current": true, "name": "청운관", "floor": "B1"}, "waypoints": ["공연실습소
+100 3680 {"dest": {"name": "청운관", "floor": "B1"}, "origin": {"current": true, "name": "청운관", "floor": "B1"}, "waypoints": ["청운관",
+101 3376 {"dest": {"name": "청운관", "floor": "B1"}, "origin": {"current": true, "name": "청운관", "floor": "B1"}, "waypoints": ["공연실습소
+102 3231 {"dest": {"name": "문예관", "floor": "B1"}, "origin": {"current": true, "name": "문예관", "floor": "B1"}, "waypoints": ["공연실습소
+103 2891 {"dest": {"name": "한림관", "floor": "B1"}, "origin": {"current": true, "name": "한림관", "floor": "B1"}, "waypoints": ["공연실습소
+104 3167 {"dest": {"name": "청운관", "floor": "B1"}, "origin": {"current": true, "name": "청운관", "floor": "B1"}, "waypoints": ["공연실습소
+105 3375 {"dest": {"name": "청운관", "floor": "B1"}, "origin": {"current": true, "name": "청운관", "floor": "B1"}, "waypoints": ["공연실습소
+106 3162 {"dest": {"name": "공연실습소", "floor": "B1"}, "origin": {"current": true, "name": "공연실습소", "floor": "B1"}, "waypoints": ["공
+107 3287 {"dest": {"name": "한림관", "floor": "B1"}, "origin": {"current": true, "name": "한림관", "floor": "B1"}, "waypoints": ["공연실습소
+108 3314 {"dest": {"name": "청운관", "floor": "B1"}, "origin": {"current": true, "name": "청운관", "floor": "B1"}, "waypoints": ["공연실습소
+109 4723 {"dest": {"name": "한림관", "floor": "B1"}, "origin": {"current": true, "name": "한림관", "floor": "B1"}, "waypoints": ["공연실습소
+110 3288 {"dest": {"name": "청운관", "floor": "1F"}, "origin": {"current": true, "name": "청운관", "floor": "1F"}, "waypoints": ["청운관",
+111 3294 {"dest": {"name": "한림관", "floor": "B1"}, "origin": {"current": true, "name": "한림관", "floor": "B1"}, "waypoints": ["한림관",
+112 3898 {"dest": {"name": "청운관", "floor": "1층"}, "origin": {"current": true, "name": "청운관", "floor": "1층"}, "waypoints": ["청운관",
+113 3256 {"dest": {"name": "북악관", "floor": "B1"}, "origin": {"current": true, "name": "북악관", "floor": "B1"}, "waypoints": ["북악관 입
+114 3967 {"dest": {"name": "본관", "floor": "> 5"}, "origin": {"current": true, "name": "본관", "floor": "> 5"}, "waypoints": ["유담관 입
+115 3460 {"dest": {"name": "정문", "floor": "1"}, "origin": {"current": true, "name": "북악관", "floor": "B1"}, "waypoints": ["정문", "북
+116 3518 {"dest": {"name": "청운관", "floor": "1층"}, "origin": {"current": true, "name": "청운관", "floor": "1층"}, "waypoints": ["청운관",
+117 3176 {"dest": {"name": "문예관 입구(1)", "floor": "},"},"origin": {"current": true, "name": "유담관 입구(1) = 6층 로비 (분수 광장)","floor": "
+118 3666 {"dest": {"name": "대일관", "floor": "B1"}, "origin": {"current": true, "name": "대일관 입구(2)", "floor": "B1"}, "waypoints": [
+119 3451 {"dest": {"name": "은주관", "floor": "3F"}, "origin": {"current": true, "name": "은주관", "floor": "3F"}, "waypoints": ["은주1관 
+120 4409 {"dest": {"name": "한림관", "floor": "B1"}, "origin": {"current": true, "name": "본관", "floor": "5"}, "waypoints": ["한림관", "
+121 3737 {"dest": {"name": "북악관 입구(3)", "floor": ":3"}, "origin": {"current": true, "name": "북악관 입구(3)", "floor": ":3"}, "waypoin
+122 5147 {"dest": {"name": "청운관 입구(1층, 현관 위)", "floor": "5층"}, "origin": {"current": true, "name": "청운관 입구(1층, 현관 위)", "floor": "
+123 5708 {"dest": {"name": "청운관 입구(1층, 현관 위)", "floor": "2층(지하 1층)"}, "origin": {"current": true, "name": "청운관 입구(1층, 현관 위)", "fl
+124 4120 {"dest": {"name": "유담관", "floor": "9"}, "origin": {"current": true, "name": "북악관", "floor": "1"}, "waypoints": ["유담관", "
+125 4405 {"dest": {"name": "북악관", "floor": "B1"}, "origin": {"current": true, "name": "서경대본관 1164번 버스정류장", "floor": "B1"}, "waypo
+126 6753 {"dest": {"name": "본관", "floor": "2"}, "origin": {"current": true, "name": "서경대본관 1164번 버스정류장", "floor": "1"}, "waypoint
+127 5712 {"dest": {"name": "청운관", "floor": "1층"}, "origin": {"current": true, "name": "서문(후문) = 서문 주차장 출입구 (옹벽의 터널 입구)","floor": 
+128 4208 {"dest": {"name": "북악관", "floor": "B1"}, "origin": {"current": true, "name": "북악관", "floor": "B1"}, "waypoints": ["북악관",
+129 5741 {"dest": {"name": "청운관", "floor": "1"}, "origin": {"current": true, "name": "청운관", "floor": "1"}, "waypoints": ["유담관 입구(
+130 8040 {"dest": {"name": "대일관", "floor": "default"}, "origin": {"current": true, "name": "문예관", "floor": "default"}, "waypoints
+131 7035 {"dest": {"name": "청운관", "floor": "1층"}, "origin": {"current": true, "name": "청운관", "floor": "1층"}, "waypoints": ["청운관",
+132 12388 {"dest": {"name": "한림관", "floor": "B1"}, "origin": {"current": true, "name": "라운지 (북악관 B1)", "floor": "B1"}, "waypoints"
+133 5465 {"dest": {"name": "한림관", "floor": "]').destination = '1164번 버스정류장' + ' 2' + ' 3' + ' 2' + ' 1164번 버스정류장' + ' 1' + ' 2' +
+134 4252 {"dest": {"name": "유담관", "floor": "B1"}, "origin": {"current": true, "name": "북악관", "floor": "B1"}, "waypoints": ["유담관 입
+135 3679 {"dest": {"name": "북악관 입구(3)", "floor": "3F"}, "origin": {"current": true, "name": "북악관 입구(3)", "floor": "3F"}, "waypoin
+136 3894 {"dest": {"name": "청운관", "floor": "3F"}, "origin": {"current": true, "name": "청운관", "floor": "3F"}, "waypoints": ["청운관 입
+137 3120 {"dest": {"name": "한림관", "floor": "3F"}, "origin": {"current": true, "name": "한림관", "floor": "3F"}, "waypoints": ["한림관",
+138 3422 {"dest": {"name": "유담관", "floor": "3F"}, "origin": {"current": true, "name": "유담관", "floor": "3F"}, "waypoints": ["유담관 입
+139 4311 {"dest": {"name": "서경대본관 1164번 버스정류장", "floor": "B1"}, "origin": {"current": true, "name": "서경대본관 1164번 버스정류장", "floor":
+140 2771 {"dest": {"name": "상승관", "floor": "1F"}, "origin": {"current": true, "name": "상승관", "floor": "1F"}, "waypoints": ["상승관",
+141 4246 {"dest": {"name": "문예관 입구(1)", "floor": "1"}, "origin": {"current": true, "name": "문예관 입구(2)", "floor": "2"}, "waypoints
+142 4987 {"dest": {"name": "대일관", "floor": "B1"}, "origin": {"current": true, "name": "대일관", "floor": "B1"}, "waypoints": ["대일관 입
+143 3253 {"dest": {"name": "유담관", "floor": "B1"}, "origin": {"current": true, "name": "유담관", "floor": "B1"}, "waypoints": ["유담관",
+144 4163 {"dest": {"name": "북악관", "floor": "B1"}, "origin": {"current": true, "name": "북악관", "floor": "B1"}, "waypoints": ["북악관",
+145 2733 {"dest": {"name": "청운관", "floor": "1층"}, "origin": {"current": true, "name": "청운관", "floor": "1층"}, "waypoints": ["청운관",
+146 3556 {"dest": {"name": "한림관 입구", "floor": ":7"}, "origin": {"current": true, "name": "한림관", "floor": ":7"}, "waypoints": ["한림
+147 3148 {"dest": {"name": "유담관", "floor": "3F"}, "origin": {"current": true, "name": "유담관", "floor": "3F"}, "waypoints": ["유담관 입
+148 3011 {"dest": {"name": "청운관", "floor": "1F"}, "origin": {"current": true, "name": "청운관", "floor": "1F"}, "waypoints": ["청운관",
+149 2791 {"dest": {"name": "북악관", "floor": "B1"}, "origin": {"current": true, "name": "북악관", "floor": "B1"}, "waypoints": ["북악관 입
+150 3573 {"dest": {"name": "서경대본관 1164번 버스정류장", "floor": "B1"}, "origin": {"current": true, "name": "본관", "floor": "1"}, "waypoin
+151 3378 {"dest": {"name": "청운관", "floor": "logic"}, "origin": {"current": true, "name": "청운관", "floor": "logic"}, "waypoints": [
+152 3259 {"dest": {"name": "문예관", "floor": "1층"}, "origin": {"current": true, "name": "문예관", "floor": "1층"}, "waypoints": ["문예관",
+153 3727 {"dest": {"name": "대일관 입구(2)", "floor": ">5"}, "origin": {"current": true, "name": "대일관 입구(1)", "floor": ">5"}, "waypoin
+154 3626 {"dest": {"name": "유담관", "floor": "B1"}, "origin": {"current": true, "name": "유담관", "floor": "B1"}, "waypoints": ["유담관 입
+155 3487 {"dest": {"name": "유담관 입구(3)", "floor": "B1"}, "origin": {"current": true, "name": "유담관 입구(3)", "floor": "B1"}, "waypoin
+156 3024 {"dest": {"name": "북악관", "floor": "B1"}, "origin": {"current": true, "name": "북악관", "floor": "B1"}, "waypoints": ["북악관",
+157 3044 {"dest": {"name": "청운관", "floor": "1층"}, "origin": {"current": true, "name": "청운관", "floor": "1층"}, "waypoints": ["청운관 입
+158 2975 {"dest": {"name": "은주관", "floor": "1층"}, "origin": {"current": true, "name": "은주관", "floor": "1층"}, "waypoints": ["은주관",
+159 3849 {"dest": {"name": "서경대본관 2115번 버스정류장", "floor": "B1"}, "origin": {"current": true, "name": "본관", "floor": "1"}, "waypoin
+160 3703 {"dest": {"name": "정문", "floor": "1층"}, "origin": {"current": true, "name": "정문", "floor": "1층"}, "waypoints": ["문예관", "
+161 4822 {"dest": {"name": "문예관 입구(1)", "floor": ">10"}, "origin": {"current": true, "name": "문예관 입구(2)", "floor": ">10"}, "waypo
+162 5078 {"dest": {"name": "한림관 입구", "floor": ":12"}, "origin": {"current": true, "name": "한림관 입구", "floor": ":12"}, "waypoints":
+163 4174 {"dest": {"name": "유담관", "floor": "3F"}, "origin": {"current": true, "name": "유담관", "floor": "3F"}, "waypoints": ["유담관 입
+164 3886 {"dest": {"name": "청운관", "floor": "1F"}, "origin": {"current": true, "name": "청운관", "floor": "1F"}, "waypoints": ["청운관 입
+165 4158 {"dest": {"name": "북악관 입구(4) = GS25 출입구", "floor": "8층"}, "origin": {"current": true, "name": "북악관", "floor": "B1"}, "wa
+166 3555 {"dest": {"name": "북악관", "floor": "B1"}, "origin": {"current": true, "name": "북악관", "floor": "B1"}, "waypoints": ["북악관 입
+167 4604 {"dest": {"name": "청운관", "floor": "B1"}, "origin": {"current": true, "name": "청운관", "floor": "B1"}, "waypoints": ["공연실습소
+168 5875 {"dest": {"name": "청운관", "floor": "1층"}, "origin": {"current": true, "name": "청운관", "floor": "1층"}, "waypoints": ["청운관 입
+169 5562 {"dest": {"name": "한림관", "floor": "B1"}, "origin": {"current": true, "name": "본관", "floor": "5"}, "waypoints": ["한림관", "
+170 3612 {"dest": {"name": "유담관", "floor": "B1"}, "origin": {"current": true, "name": "유담관", "floor": "B1"}, "waypoints": ["유담관 입
+171 5038 {   "dest": {     "name": "서경대본관 1164번 버스정류장",     "floor": "B1"   },   "origin": {     "current": true,     "name": "본관
+172 3076 {"dest": {"name": "문예관 입구(1)", "floor": "1"}, "origin": {"current": true, "name": "문예관 입구(2)", "floor": "1"}, "waypoints
+173 5525 {"dest": {"name": "대일관 입구(1)", "floor": "6층"}, "origin": {"current": true, "name": "대일관 입구(2)", "floor": "2"}, "waypoint
+174 4107 {"dest": {"name": "청운관", "floor": "1층"}, "origin": {"current": true, "name": "청운관", "floor": "1층"}, "waypoints": ["청운관 입
+175 3967 {"dest": {"name": "한림관", "floor": "9"}, "origin": {"current": true, "name": "본관", "floor": "5"}, "waypoints": ["한림관", "은
+176 6517 {"dest": {"name": "서경대본관 2115번 버스정류장", "floor": "B1"}, "origin": {"current": true, "name": "서경대본관 1164번 버스정류장", "floor":
+177 4150 {"dest": {"name": "유담관", "floor": "B1"}, "origin": {"current": true, "name": "유담관", "floor": "B1"}, "waypoints": ["유담관 입
+178 3884 {"dest": {"name": "북악관", "floor": "B1"}, "origin": {"current": true, "name": "북악관", "floor": "B1"}, "waypoints": ["북악관",
+179 4364 {"dest": {"name": "편의점 (북악관 B1)", "floor": "B1"}, "origin": {"current": true, "name": "편의점 (북악관 B1)", "floor": "B1"}, "w
+180 2959 {"dest": {"name": "청운관", "floor": "1층"}, "origin": {"current": true, "name": "청운관", "floor": "1층"}, "waypoints": ["청운관",
+181 2827 {"dest": {"name": "한림관", "floor": "B1"}, "origin": {"current": true, "name": "본관", "floor": "5"}, "waypoints": ["한림관", "
+182 3709 {"dest": {"name": "서경대본관 2115번 버스정류장", "floor": "B1"}, "origin": {"current": true, "name": "서경대본관 1164번 버스정류장", "floor":
+183 3419 {"dest": {"name": "유담관", "floor": "B1"}, "origin": {"current": true, "name": "유담관", "floor": "B1"}, "waypoints": ["유담관 입
+184 2940 {"dest": {"name": "상승관", "floor": "B1"}, "origin": {"current": true, "name": "상승관", "floor": "B1"}, "waypoints": ["상승관",
+185 3019 {"dest": {"name": "북악관", "floor": "B1"}, "origin": {"current": true, "name": "북악관", "floor": "B1"}, "waypoints": ["북악관 입
+186 3009 {"dest": {"name": "문예관 입구(1)", "floor": "B1"}, "origin": {"current": true, "name": "문예관 입구(2)", "floor": "B1"}, "waypoin
+187 2966 {"dest": {"name": "한림관", "floor": "B1"}, "origin": {"current": true, "name": "대일관 입구(1)", "floor": "B1"}, "waypoints": [
+188 3291 {"dest": {"name": "은주관", "floor": "B1"}, "origin": {"current": true, "name": "은주관", "floor": "B1"}, "waypoints": ["은주1관 
+189 3934 {"dest": {"name": "서경대본관 1164번 버스정류장", "floor": "B1"}, "origin": {"current": true, "name": "서경대본관 1164번 버스정류장", "floor":
+190 3056 {"dest": {"name": "청운관", "floor": "1층"}, "origin": {"current": true, "name": "청운관", "floor": "1층"}, "waypoints": ["청운관 입
+191 2933 {"dest": {"name": "한림관", "floor": "3F"}, "origin": {"current": true, "name": "본관", "floor": "5"}, "waypoints": ["본관", "은
+192 3786 {"dest": {"name": "유담관", "floor": "B1"}, "origin": {"current": true, "name": "유담관", "floor": "B1"}, "waypoints": ["유담관 입
+193 2819 {"dest": {"name": "상승관", "floor": "B1"}, "origin": {"current": true, "name": "상승관", "floor": "B1"}, "waypoints": ["상승관",
+194 3899 {"dest": {"name": "서경대본관 2115번 버스정류장", "floor": "B1"}, "origin": {"current": true, "name": "서경대본관 1164번 버스정류장", "floor":
+195 3645 {"dest": {"name": "북악관", "floor": "B1"}, "origin": {"current": true, "name": "북악관", "floor": "B1"}, "waypoints": ["북악관",
+196 3005 {"dest": {"name": "청운관", "floor": "B1"}, "origin": {"current": true, "name": "청운관", "floor": "B1"}, "waypoints": ["청운관 입
+197 3132 {"dest": {"name": "한림관", "floor": "B1"}, "origin": {"current": true, "name": "본관", "floor": "5"}, "waypoints": ["한림관", "
+198 6373 {"dest": {"name": "유담관", "floor": "B1"}, "origin": {"current": true, "name": "유담관", "floor": "B1"}, "waypoints": ["유담관 입
+199 4674 {"dest": {"name": "청운관", "floor": "B1"}, "origin": {"current": true, "name": "청운관", "floor": "B1"}, "waypoints": ["청운관",
+200 4207 {"dest": {"name": "북악관", "floor": "B1"}, "origin": {"current": true, "name": "북악관", "floor": "B1"}, "waypoints": ["북악관 입
+201 3273 {"dest": {"name": "청운관", "floor": "1층"}, "origin": {"current": true, "name": "청운관", "floor": "1층"}, "waypoints": ["청운관 입
+202 3528 {"dest": {"name": "한림관 입구", "floor": "7층"}, "origin": {"current": true, "name": "본관", "floor": "5층"}, "waypoints": ["본관"
+203 3431 {"dest": {"name": "유담관", "floor": "B1"}, "origin": {"current": true, "name": "유담관", "floor": "B1"}, "waypoints": ["유담관 입
+204 3116 {"dest": {"name": "문예관", "floor": "1"}, "origin": {"current": true, "name": "문예관 입구(1)", "floor": "1"}, "waypoints": ["문
+205 3080 {"dest": {"name": "청운관", "floor": "1층"}, "origin": {"current": true, "name": "청운관", "floor": "1층"}, "waypoints": ["청운관",
+206 3404 {"dest": {"name": "북악관", "floor": "B1"}, "origin": {"current": true, "name": "북악관", "floor": "B1"}, "waypoints": ["북악관 입
+207 3649 {"dest": {"name": "청운관", "floor": "1층"}, "origin": {"current": true, "name": "청운관", "floor": "1층"}, "waypoints": ["청운관",
+208 4753 {"dest": {"name": "한림관 입구", "floor": ":3"}, "origin": {"current": true, "name": "한림관", "floor": ":3"}, "waypoints": ["지하
+209 3813 {"dest": {"name": "유담관", "floor": "3F"}, "origin": {"current": true, "name": "유담관", "floor": "3F"}, "waypoints": ["유담관 입
+210 3482 {"dest": {"name": "본관", "floor": "3F"}, "origin": {"current": true, "name": "본관", "floor": "3F"}, "waypoints": ["본관", "표
+211 2885 {"dest": {"name": "문예관", "floor": "1"}, "origin": {"current": true, "name": "문예관", "floor": "1"}, "waypoints": ["문예관 입구(
+212 2654 {"dest": {"name": "대일관", "floor": "B1"}, "origin": {"current": true, "name": "대일관", "floor": "B1"}, "waypoints": ["대일관 입
+213 2918 {"dest": {"name": "청운관", "floor": "1층"}, "origin": {"current": true, "name": "청운관", "floor": "1층"}, "waypoints": ["청운관",
+214 3120 {"dest": {"name": "북악관 입구(4) = GS25 출입구", "floor": "5층"}, "origin": {"current": true, "name": "북악관", "floor": "B1"}, "wa
+215 3150 {"dest": {"name": "한림관", "floor": "3F"}, "origin": {"current": true, "name": "본관", "floor": "5층"}, "waypoints": ["한림관", 
+216 3080 {"dest": {"name": "북악관", "floor": "B1"}, "origin": {"current": true, "name": "북악관", "floor": "B1"}, "waypoints": ["청운관 입
+217 4709 {"dest": {"name": "한림관", "floor": "1"}, "origin": {"current": true, "name": "한림관", "floor": "1"}, "waypoints": ["한림관", "
+218 3124 {"dest": {"name": "본관", "floor": "default"}, "origin": {"current": true, "name": "본관", "floor": "default"}, "waypoints":
+219 3085 {"dest": {"name": "북악관", "floor": "B1"}, "origin": {"current": true, "name": "북악관", "floor": "B1"}, "waypoints": ["북악관 입
+220 2760 {"dest": {"name": "청운관", "floor": "B1"}, "origin": {"current": true, "name": "청운관", "floor": "B1"}, "waypoints": ["청운관",
+221 2834 {"dest": {"name": "한림관", "floor": "B1"}, "origin": {"current": true, "name": "한림관", "floor": "5"}, "waypoints": ["한림관", 
+222 2636 {"dest": {"name": "혜인관", "floor": "동쪽 끝"}, "origin": {"current": true, "name": "혜인관", "floor": "1층"}, "waypoints": ["혜인관
+223 3700 {"dest": {"name": "유담관 입구(3)", "floor": "3F"}, "origin": {"current": true, "name": "유담관 입구(3)", "floor": "3F"}, "waypoin
+224 2680 {"dest": {"name": "청운관", "floor": "B1"}, "origin": {"current": true, "name": "청운관", "floor": "B1"}, "waypoints": ["청운관",
+225 2654 {"dest": {"name": "북악관", "floor": "3F"}, "origin": {"current": true, "name": "북악관", "floor": "3F"}, "waypoints": ["북악관",
+226 3480 {"dest": {"name": "청운관 입구(1층, 현관 위)", "floor": "5층"}, "origin": {"current": true, "name": "청운관 입구(1층, 현관 위)", "floor": "
+227 4015 {"dest": {"name": "북악관", "floor": "B1"}, "origin": {"current": true, "name": "북악관", "floor": "B1"}, "waypoints": ["지하통로 
+228 2917 {"dest": {"name": "한림관", "floor": "B1"}, "origin": {"current": true, "name": "본관", "floor": "5"}, "waypoints": ["한림관", "
+229 2745 {"dest": {"name": "청운관", "floor": "1층"}, "origin": {"current": true, "name": "청운관", "floor": "1층"}, "waypoints": ["청운관 입
+230 3656 {"dest": {"name": "유담관", "floor": "3F"}, "origin": {"current": true, "name": "유담관", "floor": "3F"}, "waypoints": ["유담관 입
+231 2774 {"dest": {"name": "편의점 (북악관 B1)", "floor": "B1"}, "origin": {"current": true, "name": "북악관", "floor": "B1"}, "waypoints"
+232 2988 {"dest": {"name": "문예관", "floor": "B1"}, "origin": {"current": true, "name": "문예관", "floor": "B1"}, "waypoints": ["문예관",
+233 2717 {"dest": {"name": "본관", "floor": "7"}, "origin": {"current": true, "name": "본관", "floor": "7"}, "waypoints": ["본관", "본관"
+234 4685 {"dest": {"name": "대일관", "floor": "2"}, "origin": {"current": true, "name": "대일관", "floor": "2"}, "waypoints": ["대일관 입구(
+235 2616 {"dest": {"name": "상승관", "floor": "B1"}, "origin": {"current": true, "name": "상승관", "floor": "B1"}, "waypoints": ["상승관",
+236 4238 {"dest": {"name": "은주2관 입구(1)", "floor": "3F"}, "origin": {"current": true, "name": "은주2관 입구(1)", "floor": "3F"}, "waypo
+237 4277 {"dest": {"name": "청운관", "floor": "B1"}, "origin": {"current": true, "name": "청운관", "floor": "B1"}, "waypoints": ["공연실습소
+238 3104 {"dest": {"name": "북악관", "floor": "1층"}, "origin": {"current": true, "name": "북악관", "floor": "1층"}, "waypoints": ["북악관",
+239 4288 {"dest": {"name": "청운관 입구(1층, 현관 위)", "floor": "3층"}, "origin": {"current": true, "name": "청운관 입구(1층, 현관 위)", "floor": "
+240 3023 {"dest": {"name": "문예관 입구(1)", "floor": "12"}, "origin": {"current": true, "name": "문예관 입구(2)", "floor": "1"}, "waypoint
+241 3067 {"dest": {"name": "북악관", "floor": "B1"}, "origin": {"current": true, "name": "북악관", "floor": "B1"}, "waypoints": ["북악관",
+242 2581 {"dest": {"name": "유담관", "floor": "B1"}, "origin": {"current": true, "name": "유담관", "floor": "B1"}, "waypoints": ["유담관",
+243 3177 {"dest": {"name": "유담관", "floor": "6층"}, "origin": {"current": true, "name": "서경대본관 2115번 버스정류장", "floor": "6층"}, "waypo
+244 2775 {"dest": {"name": "대일관", "floor": "B1"}, "origin": {"current": true, "name": "대일관 입구(2)", "floor": "2"}, "waypoints": ["
+245 3795 {"dest": {"name": "유담관 입구(1) = 6층 로비 (분수 광장)", "floor": "6층"}, "origin": {"current": true, "name": "유담관 입구(1) = 6층 로비 (분
+246 3293 {"dest": {"name": "정문", "floor": "B1"}, "origin": {"current": true, "name": "서문(후문) = 서문 주차장 출입구 (옹벽의 터널 입구)","floor": "
+247 4554 {"dest": {"name": "편의점 (북악관 B1)", "floor": "1"}, "origin": {"current": true, "name": "편의점 (북악관 B1)", "floor": "1"}, "way
+248 2800 {"dest": {"name": "청운관", "floor": "1층"}, "origin": {"current": true, "name": "청운관", "floor": "1층"}, "waypoints": ["청운관",
+249 3237 {"dest": {"name": "북악관", "floor": "B1"}, "origin": {"current": true, "name": "북악관", "floor": "B1"}, "waypoints": ["북악관 입
+250 3028 {"dest": {"name": "한림관 입구", "floor": ">4"}, "origin": {"current": true, "name": "한림관 입구", "floor": ">4"}, "waypoints": [
+251 3664 {"dest": {"name": "유담관", "floor": "log"}, "origin": {"current": true, "name": "유담관", "floor": "log"}, "waypoints": ["유담관
+252 2975 {"dest": {"name": "청운관", "floor": "1층"}, "origin": {"current": true, "name": "청운관", "floor": "1층"}, "waypoints": ["청운관 입
+{"model": "qwen2.5-0.5b-instruct-q4_k_m.gguf", "size_mb": 491.4, "gen_tokens_per_s_mean": 51.4, "threads": 6, "n": 253}

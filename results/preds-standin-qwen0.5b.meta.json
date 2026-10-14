@@ -1,0 +1,7 @@
+{
+ "model": "qwen2.5-0.5b-instruct-q4_k_m.gguf",
+ "size_mb": 491.4,
+ "gen_tokens_per_s_mean": 51.4,
+ "threads": 6,
+ "n": 253
+}
