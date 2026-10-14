@@ -1,0 +1,9 @@
+node_modules/
+models/
+android/bin/
+*.gguf
+*.safetensors
+*.bin
+!data/package.bin
+llm/out/
+__pycache__/

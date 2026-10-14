@@ -1,0 +1,8 @@
+{
+  "name": "campus-nlp-rules",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "vitest run", "eval": "tsx eval/run.ts", "typecheck": "tsc --noEmit" },
+  "devDependencies": { "vitest": "2.1.9", "typescript": "5.6.3", "tsx": "4.19.2" }
+}

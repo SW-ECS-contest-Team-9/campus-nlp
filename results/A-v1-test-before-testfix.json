@@ -1,0 +1,19 @@
+{
+ "n": 152,
+ "destination_acc": 0.98,
+ "origin_acc": 1.0,
+ "mandatory_exact": 0.993,
+ "mandatory_violations": 1,
+ "spurious_avoidStairs_when_stairs_ok": 0,
+ "mode_acc": 0.987,
+ "preferences_exact": 1.0,
+ "time_acc": 1.0,
+ "unsupported_recall": 0.969,
+ "unsupported_precision": 0.969,
+ "clarification_precision": 0.938,
+ "clarification_recall": 1.0,
+ "parse_fail": 0,
+ "latency_ms_mean": 0.05,
+ "latency_ms_p95": 0.11,
+ "split": "test"
+}
