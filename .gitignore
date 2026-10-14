@@ -7,3 +7,4 @@ android/bin/
 !data/package.bin
 llm/out/
 __pycache__/
+.venv/
