@@ -1,0 +1,47 @@
+# campus-nlp — 자연어 경로 요청 → 경로 조건(JSON) 실험
+
+작성: Claude (2026-10-15). 대상: 서경대 캠퍼스 길찾기 클라이언트(Expo RN dev build, Hermes, 기준 기기 Galaxy S21 Exynos 2100 / 8 GB / arm64-v8a).
+
+원칙(2026-10-08 사용자 AI 목표): 모델·규칙은 **말 → 조건** 만 만든다. 길은 경로 엔진이 계산한다. 필수 조건(mandatory)과 선호(preferences)를 나눈다. 지도에 자료가 없는 조건은 `unsupported` 로 **말하고**, 조용히 버리지 않는다. 장소는 지도 꾸러미에 있는 것만(key 로) 가리킨다.
+
+## 출력 스키마 v1 (`ts/src/types.ts`)
+```
+{ v:1,
+  destination: {text, placeKey|null, buildingKey|null, floorKey|null, candidates[]},
+  origin:      {..같은 필드, useCurrentLocation},
+  waypoints[], mode: shortest|avoidStairs|preferElevator,
+  mandatory: [avoidStairs|wheelchairNeeded], preferences: [indoor|fewerStairs],
+  timeLimitMin|null, unsupported: [{text, reason}], needsClarification: {question}|null }
+```
+- 요청서의 `placeKey` 에 `buildingKey`·`floorKey` 를 더했다: "북악관 3층"은 장소(place)가 아니라 건물·층이라서. 입구는 경로 엔진이 고른다.
+- `covered/quiet/lessCrowded` 는 지금 꾸러미에 자료가 없어 `preferences` 에 넣지 않고 `unsupported` (reason "지도에 그 정보가 아직 없음(...)") 로만 낸다. 자료가 생기면 preferences 로 옮긴다.
+- 휠체어: `mandatory=[avoidStairs, wheelchairNeeded]` + `unsupported`(경사·폭·문턱 자료 없음). 계단만 확실히 피한다.
+
+## 구성
+| 경로 | 내용 |
+|---|---|
+| `ts/` | 방식 A(규칙, 모델 없음). `parseRouteRequest(text, pkg)`. ES2019·`lib` 에 DOM/Node 없음 → Hermes 에서 그대로 동작(Intl·normalize·lookbehind·`\p{}` 미사용). vitest 11개 |
+| `eval/utterances.txt` → `gold.jsonl` | **합성** 시험 문장 253개(dev 101 / test 152). `build_gold.py`, 채점 `score.py`, 비교 `compare.py` |
+| `llm/` | 방식 C: 프롬프트·스키마(`common.py`), 자료(`prepare_data.py`), 미세조정(`finetune.py`), GGUF(`export_gguf.py`), 평가(`run_llamacpp.py`), 한 번에(`run_all.py`) |
+| `android/` | S21 실측: `s21_bench.sh`, `bin/`(arm64 llama-bench·llama-completion, git 제외) |
+| `data/package.bin` | 지도 꾸러미 v1 (sha256 aa4d6142…fdc, 서버 `/v1/map/releases/latest` 와 일치 확인) |
+
+## 클라이언트 통합 (방식 A — 지금 바로)
+1. `ts/src/{types,lexicon,parse}.ts` 를 `campus-client` 의 `src/nlp/` 로 복사(의존성 없음).
+2. 꾸러미를 읽은 뒤 한 번: `const lex = buildLexicon(pkg)`; 입력마다 `parseRouteRequest(text, pkg, lex)` (S21 에서도 1 ms 미만 예상, PC 0.03 ms).
+3. 결과 처리 순서:
+   - `needsClarification` 있으면 질문 + `candidates` 버튼을 보여 주고 경로 계산 안 함.
+   - `unsupported` 는 항상 화면에 "이 조건은 아직 지원하지 않습니다: …" 로 보여 줌.
+   - 경로 엔진 호출: `mandatory` 는 **하드 필터**(avoidStairs → stairs 간선 제외; 경로 없으면 "계단 없는 길이 없음"이라 말하고 몰래 풀지 않음), `mode`·`preferences` 는 비용 가중치.
+   - 목적지: `placeKey` → 그 노드, `floorKey` → 그 층의 노드들, `buildingKey` 만 → 그 건물 입구들 중 가장 가까운 것.
+4. 설명(FR-EXPLAIN-01): 해석한 조건을 칩으로 표시("계단 없이", "엘리베이터 우선", "북악관 3층").
+5. 꾸러미가 바뀌면 `buildLexicon` 을 다시 부른다. 사전(시설 일반어·지도에 없는 장소 목록)은 `lexicon.ts` 의 `FACILITY`/`UNKNOWN`.
+
+## 방식 C (Gemma 3 270M) Android 경로
+- 주 경로: **GGUF Q4_K_M / Q8_0 + `llama.rn`** (React Native 용 llama.cpp 바인딩, arm64-v8a 네이티브 라이브러리 포함, Expo dev build 에서 config plugin 없이 autolink). 문법 제한: `llama.rn` 의 `completion({ prompt, response_format: { type: 'json_schema', json_schema: { schema } } })` 또는 `grammar`(GBNF). 스키마는 `llm/common.py::json_schema` 와 같게(장소 이름 enum → 지도에 없는 장소를 낼 수 없음). 이름 → key 는 앱 코드가 꾸러미에서 찾는다(`to_route_request` 를 TS 로 옮김).
+- 모델 파일 위치: 앱 assets 에 넣으면 APK/AAB 가 커지고(Q4 약 250 MB 추정, Play 기본 150 MB 제한 초과 → Play Asset Delivery 필요), llama.cpp 는 mmap 을 위해 실제 파일 경로가 필요해서 첫 실행에 내부 저장소로 복사해야 한다. **권장: 첫 사용 때 서버(지도 릴리스처럼 sha256 포함)에서 내려받아 `FileSystem.documentDirectory` 에 두기.** Wi-Fi 에서만, 진행 표시.
+- 메모리: 270M Q4 은 mmap 이라 상주 수백 MB 이하(추정). S21 8 GB 에서 문제 없음. 컨텍스트 1024~2048, `n_threads` 4, `use_mlock` 끔. 백그라운드로 가면 `release()`.
+- 첫 로드: 수백 ms~1 s(추정, 실측은 `android/s21_bench.sh` 의 load time). 앱 시작 때가 아니라 자연어 입력 창을 열 때 미리 로드.
+- 대안: **MediaPipe LLM Inference / LiteRT-LM** — Gemma 3 270M 은 Google 이 `.task`/`.litertlm` 형태로 내보내는 경로가 있다(`ai-edge-torch` 의 generative 변환 → int8/int4 → task bundle). RN 에서는 직접 네이티브 모듈(Kotlin `LlmInference`) 을 감싸야 하고, JSON 문법 제한 출력이 없어 출력 검증·재시도가 필요하다. 그래서 GGUF 를 주 경로로 구현했다.
+- 속도 측정: PC 수치는 대리값일 뿐. 실기기 `android/s21_bench.sh`(adb, llama-bench + 실제 프롬프트 1건). 에뮬레이터 `Campus_S21`(x86_64)은 기능 확인만, `-no-window` 로.
+- S21 추정법(실측 전): 생성 속도는 메모리 대역폭 한계 → tok/s ≈ 실효 대역폭(CPU 약 15~25 GB/s 추정) ÷ 토큰당 읽는 가중치 바이트(Q4 약 0.2 GB) → 수십 tok/s. 프롬프트 처리(약 600 토큰)가 지연의 대부분일 것 → 짧은 시스템 문구·장소 목록 축소가 효과 큼.
