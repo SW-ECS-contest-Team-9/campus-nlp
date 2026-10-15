@@ -1,0 +1,7 @@
+{
+ "model": "gemma3-270m-route-Q8_0.gguf",
+ "size_mb": 291.5,
+ "gen_tokens_per_s_mean": 400.9,
+ "threads": 8,
+ "n": 152
+}
