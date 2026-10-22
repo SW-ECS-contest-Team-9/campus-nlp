@@ -29,20 +29,22 @@ describe('parseRouteRequest', () => {
     expect(r.mandatory).toEqual(['avoidStairs']);
     expect(r.mode).toBe('avoidStairs');
   });
-  it('계단 허용(함정): 계단으로 빨리 → 필수 조건 없음', () => {
+  it('계단 허용(함정): 계단으로 빨리 → 필수 조건 없음, 빠른 길', () => {
     const r = p('계단으로 빨리 혜인관');
     expect(r.mandatory).toEqual([]);
-    expect(r.mode).toBe('shortest');
+    expect(r.mode).toBe('fastest');
   });
-  it('휠체어 → 필수 + 지도에 없는 부분은 말함', () => {
+  it('휠체어 → 필수 + accessible, 정보 없음으로 돌려보내지 않음', () => {
     const r = p('휠체어로 유담관');
     expect(r.mandatory).toEqual(['avoidStairs', 'wheelchairNeeded']);
-    expect(r.unsupported.map(u => u.text)).toContain('휠체어');
+    expect(r.mode).toBe('accessible');
+    expect(r.unsupported).toEqual([]);
   });
-  it('지붕·조용함·붐빔은 unsupported, preferences 에 넣지 않음', () => {
+  it('비는 rainProtected, 조용함·붐빔은 unsupported, preferences 에 넣지 않음', () => {
     const r = p('비 오고 조용하고 사람 적은 길로 청운관');
     expect(r.preferences).toEqual([]);
-    expect(r.unsupported.length).toBe(3);
+    expect(r.mode).toBe('rainProtected');
+    expect(r.unsupported.length).toBe(2);
     expect(r.unsupported[0].reason).toContain('지도에 그 정보가 아직 없음');
   });
   it('모호한 장소 → 재확인', () => {
@@ -64,5 +66,54 @@ describe('parseRouteRequest', () => {
   });
   it('짧은 이름이 단어 가운데서 잡히지 않음(가서 문예관 ≠ 서문)', () => {
     expect(p('계단으로 올라가서 문예관').destination.buildingKey).toBe('b:문예관');
+  });
+});
+
+describe('경로 방식 7가지', () => {
+  const m = (t: string) => { const r = p(t); return [r.mode, r.secondaryModes, r.mandatory] as const; };
+  it('조건 없으면 shortest, 보조 방식 없음', () => {
+    expect(m('북악관 가는 길')).toEqual(['shortest', [], []]);
+  });
+  it('빠른 길·급해·늦었어·몇 분 안 → fastest', () => {
+    for (const t of ['한림관 빠른 길', '급해 청운관', '수업 늦었어 북악관', '10분 안에 유담관', '서둘러야 돼 본관'])
+      expect(p(t).mode).toBe('fastest');
+  });
+  it('휠체어·유모차 → accessible(필수), 캐리어 무거움 → accessible(선호)', () => {
+    expect(m('유모차 끌고 대일관')).toEqual(['accessible', [], ['avoidStairs']]);
+    expect(m('캐리어가 무거워서 기숙사')).toEqual(['accessible', [], []]);
+    expect(p('캐리어가 무거워서 기숙사').preferences).toEqual(['fewerStairs']);
+  });
+  it('짐 많아 계단 없이 → avoidStairs 그대로', () => {
+    expect(m('짐 많아서 계단 없이 북악관')).toEqual(['avoidStairs', [], ['avoidStairs']]);
+  });
+  it('비·우산 없음·눈·실내로 → rainProtected, 정보 없음 아님', () => {
+    for (const t of ['비 와서 청운관', '우산 없는데 한림관', '눈 와서 본관', '실내로만 가는 길 청운관']) {
+      const r = p(t);
+      expect(r.mode).toBe('rainProtected');
+      expect(r.unsupported).toEqual([]);
+    }
+  });
+  it('밤·어두워·늦게·무서워·밝은 길 → nightSafe', () => {
+    for (const t of ['밤에 기숙사 가는 길', '어두워서 본관', '늦게 끝나서 정문까지', '혼자 가기 무서워 유담관', '밝은 길로 기숙사']) {
+      const r = p(t);
+      expect(r.mode).toBe('nightSafe');
+      expect(r.unsupported).toEqual([]);
+    }
+  });
+  it('계단이 무서워는 nightSafe 가 아니라 계단 피하기', () => {
+    expect(m('계단이 무서워 북악관')).toEqual(['avoidStairs', [], ['avoidStairs']]);
+  });
+  it('엘리베이터 → preferElevator, 엘리베이터 말고는 아님', () => {
+    expect(p('엘베 타고 문예관 10층').mode).toBe('preferElevator');
+    expect(p('엘리베이터 말고 계단으로 청운관').mode).toBe('shortest');
+  });
+  it('필수 조건 우선: accessible > avoidStairs, 선호 방식은 보조로', () => {
+    expect(m('휠체어로 계단 없이 유담관')).toEqual(['accessible', [], ['avoidStairs', 'wheelchairNeeded']]);
+    expect(m('휠체어인데 비 와요 유담관')).toEqual(['accessible', ['rainProtected'], ['avoidStairs', 'wheelchairNeeded']]);
+    expect(m('엘베로만 가는 길 유담관')).toEqual(['avoidStairs', ['preferElevator'], ['avoidStairs']]);
+  });
+  it('선호끼리는 하나를 주 방식으로, 나머지는 보조로(nightSafe > rainProtected > accessible > preferElevator > avoidStairs > fastest)', () => {
+    expect(m('밤인데 비 오고 급해 기숙사')).toEqual(['nightSafe', ['rainProtected', 'fastest'], []]);
+    expect(m('짐 많은데 엘베 타고 대일관 6층')).toEqual(['preferElevator', ['avoidStairs'], []]);
   });
 });

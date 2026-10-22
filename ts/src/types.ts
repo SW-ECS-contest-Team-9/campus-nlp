@@ -4,7 +4,8 @@ export interface PkgFloor { key: string; buildingKey: string; code: string }
 export interface PkgPlace { key: string; name: string; aliases: string[]; buildingKey: string | null; floorKey: string | null; category: string }
 export interface MapPackage { schemaVersion: number; buildings: PkgBuilding[]; floors: PkgFloor[]; places: PkgPlace[] }
 
-export type Mode = 'shortest' | 'avoidStairs' | 'preferElevator';
+// 경로 방식 7가지(campus-backend mapdata/routing.py MODE_SPEC, GET /v1/route-modes 와 같은 이름)
+export type Mode = 'shortest' | 'fastest' | 'avoidStairs' | 'accessible' | 'preferElevator' | 'rainProtected' | 'nightSafe';
 export type Mandatory = 'avoidStairs' | 'wheelchairNeeded';
 export type Preference = 'indoor' | 'fewerStairs' | 'covered' | 'quiet' | 'lessCrowded';
 
@@ -21,7 +22,8 @@ export interface RouteRequest {
   destination: Target;
   origin: Target & { useCurrentLocation: boolean };
   waypoints: Target[];
-  mode: Mode;
+  mode: Mode;                  // 주 방식(경로 계산에 넘기는 하나)
+  secondaryModes: Mode[];      // 함께 말한 다른 방식(주 방식에 밀린 것, 우선순위 순)
   mandatory: Mandatory[];
   preferences: Preference[];   // 지도에 자료가 있는 선호만. 자료 없는 것은 unsupported 로
   timeLimitMin: number | null;
