@@ -2,7 +2,8 @@
 # 형식: 문장 || 목적지 || 옵션
 # 목적지: B:건물[@층] | P:장소이름일부[@층] | ? (모호 → 재확인 기대) | - (목적지 없음 → 재확인 기대)
 # 옵션(공백 구분): o=B:..|P:..|? (출발지)  w=.. (경유지)  M=필수,..  p=선호,..  e (엘리베이터 우선)
-#   u=지원안함범주,..(covered quiet crowd scenic shade slope lighting smoking amenity place floor wheelchair entrance)  c (재확인 기대)  t=분  ok (계단 허용 명시)
+#   u=지원안함범주,..(quiet crowd scenic shade slope smoking amenity place floor entrance)  c (재확인 기대)  t=분  ok (계단 허용 명시)
+#   m=주 방식(기본: e → preferElevator, M·p 에 avoidStairs/fewerStairs → avoidStairs, 그 밖 shortest)  s=보조 방식,..(우선순위 순)  — 2026-10-22 방식 7가지
 # ── 목적지만 ──
 북악관 가는 길 알려줘 || B:북악관 ||
 청운관 어떻게 가요? || B:청운관 ||
@@ -28,9 +29,9 @@
 혜인관!! || B:혜인관 ||
 대일관 좀 알려주세요 || B:대일관 ||
 본관 쪽 가는 길 || B:본관 ||
-문예관 가는 가장 빠른 길 || B:문예관 ||
+문예관 가는 가장 빠른 길 || B:문예관 || m=fastest
 청운관까지 최단 거리로 || B:청운관 ||
-한림관 빨리 가는 길 || B:한림관 ||
+한림관 빨리 가는 길 || B:한림관 || m=fastest
 유담관 제일 가까운 길로 || B:유담관 ||
 # ── 층 ──
 북악관 3층 가는 길 || B:북악관@3F ||
@@ -109,7 +110,7 @@ GS25 가고 싶어 || P:편의점 (북악관 ||
 # ── 목적지 없음/지도에 없는 장소 ──
 길 좀 알려줘 || - || c
 계단 없이 가고 싶어 || - || M=avoidStairs c
-빨리 가는 길 || - || c
+빨리 가는 길 || - || c m=fastest
 도서관 가고 싶어 || - || u=place c
 학생식당 어떻게 가 || - || u=place c
 학식 먹으러 가는 길 || - || u=place c
@@ -129,7 +130,7 @@ GS25 가고 싶어 || P:편의점 (북악관 ||
 분수광장에서 문예관까지 || B:문예관 || o=P:유담관 입구(1)
 여기서 대일관까지 || B:대일관 ||
 지금 위치에서 은주관 || B:은주관 ||
-여기서 제일 빠르게 한림관 || B:한림관 ||
+여기서 제일 빠르게 한림관 || B:한림관 || m=fastest
 현재 위치에서 북악관 3층 || B:북악관@3F ||
 한림관에서 청운관 5층까지 || B:청운관@5F || o=B:한림관
 청운관 2층에서 혜인관 || B:혜인관 || o=B:청운관@2F
@@ -153,12 +154,12 @@ GS25 가고 싶어 || P:편의점 (북악관 ||
 다리 다쳐서 계단 못 가요 본관 || B:본관 || M=avoidStairs
 목발 짚고 있어 혜인관 가야 돼 || B:혜인관 || M=avoidStairs
 깁스해서 문예관 || B:문예관 || M=avoidStairs
-유모차 끌고 대일관 || B:대일관 || M=avoidStairs
-유모차 있어요 은주관 가는 길 || B:은주관 || M=avoidStairs
+유모차 끌고 대일관 || B:대일관 || M=avoidStairs m=accessible
+유모차 있어요 은주관 가는 길 || B:은주관 || M=avoidStairs m=accessible
 발목 삐어서 계단은 좀 북악관 || B:북악관 || M=avoidStairs
 계단 절대 안 돼 청운관 || B:청운관 || M=avoidStairs
-엘리베이터로만 한림관 7층 || B:한림관@7F || M=avoidStairs e
-엘베로만 가는 길 유담관 || B:유담관 || M=avoidStairs e
+엘리베이터로만 한림관 7층 || B:한림관@7F || M=avoidStairs e m=avoidStairs s=preferElevator
+엘베로만 가는 길 유담관 || B:유담관 || M=avoidStairs e m=avoidStairs s=preferElevator
 게단 없이 혜인관 || B:혜인관 || M=avoidStairs
 계단없이북악관 || B:북악관 || M=avoidStairs
 계단 싫어 본관 가는 길 || B:본관 || M=avoidStairs
@@ -167,12 +168,12 @@ GS25 가고 싶어 || P:편의점 (북악관 ||
 계단 못 올라가요 대일관 5층 || B:대일관@5F || M=avoidStairs
 다리가 불편해서 유담관 || B:유담관 || M=avoidStairs
 # ── 휠체어 ──
-휠체어로 유담관 가는 길 || B:유담관 || M=avoidStairs,wheelchairNeeded u=wheelchair
-휠체어 타고 북악관 B1 || B:북악관@B1 || M=avoidStairs,wheelchairNeeded u=wheelchair
-휠체어인데 청운관까지 || B:청운관 || M=avoidStairs,wheelchairNeeded u=wheelchair
-휠채어로 한림관 || B:한림관 || M=avoidStairs,wheelchairNeeded u=wheelchair
-친구가 휠체어 타요 본관 가는 길 || B:본관 || M=avoidStairs,wheelchairNeeded u=wheelchair
-정문에서 휠체어로 혜인관 || B:혜인관 || o=? M=avoidStairs,wheelchairNeeded u=wheelchair c
+휠체어로 유담관 가는 길 || B:유담관 || M=avoidStairs,wheelchairNeeded m=accessible
+휠체어 타고 북악관 B1 || B:북악관@B1 || M=avoidStairs,wheelchairNeeded m=accessible
+휠체어인데 청운관까지 || B:청운관 || M=avoidStairs,wheelchairNeeded m=accessible
+휠채어로 한림관 || B:한림관 || M=avoidStairs,wheelchairNeeded m=accessible
+친구가 휠체어 타요 본관 가는 길 || B:본관 || M=avoidStairs,wheelchairNeeded m=accessible
+정문에서 휠체어로 혜인관 || B:혜인관 || o=? M=avoidStairs,wheelchairNeeded c m=accessible
 # ── 엘리베이터 우선 ──
 엘베 타고 문예관 10층 || B:문예관@10F || e
 엘리베이터 타고 한림관 12층 || B:한림관@12F || e
@@ -181,24 +182,24 @@ GS25 가고 싶어 || P:편의점 (북악관 ||
 엘베로 북악관 8층 || B:북악관@8F || e
 # ── 짐/힘듦(선호) ──
 짐이 많아서 북악관 || B:북악관 || p=fewerStairs
-캐리어 끌고 기숙사 가야 해 || B:외국인 생활관 || p=fewerStairs
+캐리어 끌고 기숙사 가야 해 || B:외국인 생활관 || p=fewerStairs m=accessible
 박스 들고 청운관 가는 길 || B:청운관 || p=fewerStairs
 너무 피곤해 한림관 || B:한림관 || p=fewerStairs
 무릎이 아파서 유담관 || B:유담관 || p=fewerStairs
 계단 좀 덜 타는 길로 본관 || B:본관 || p=fewerStairs
 무거운 거 들고 문예관 || B:문예관 || p=fewerStairs
-짐 많은데 엘베 타고 대일관 6층 || B:대일관@6F || p=fewerStairs e
+짐 많은데 엘베 타고 대일관 6층 || B:대일관@6F || p=fewerStairs e s=avoidStairs
 # ── 실내 ──
-실내로만 가는 길 청운관 || B:청운관 || p=indoor
-건물 안으로 한림관까지 || B:한림관 || p=indoor
-추워서 밖으로 안 나가고 본관 || B:본관 || p=indoor
-너무 더워 실내로 유담관 || B:유담관 || p=indoor
-미세먼지 심해서 건물 안으로 북악관 || B:북악관 || p=indoor
+실내로만 가는 길 청운관 || B:청운관 || p=indoor m=rainProtected
+건물 안으로 한림관까지 || B:한림관 || p=indoor m=rainProtected
+추워서 밖으로 안 나가고 본관 || B:본관 || p=indoor m=rainProtected
+너무 더워 실내로 유담관 || B:유담관 || p=indoor m=rainProtected
+미세먼지 심해서 건물 안으로 북악관 || B:북악관 || p=indoor m=rainProtected
 # ── 지원 안 하는 조건 ──
-비 와서 지붕 있는 길로 편의점 || P:편의점 (북악관 || u=covered
-비 안 맞고 청운관 가는 길 || B:청운관 || u=covered
-우산 없는데 한림관 || B:한림관 || u=covered
-눈 와서 미끄러워 본관 || B:본관 || u=covered
+비 와서 지붕 있는 길로 편의점 || P:편의점 (북악관 || m=rainProtected
+비 안 맞고 청운관 가는 길 || B:청운관 || m=rainProtected
+우산 없는데 한림관 || B:한림관 || m=rainProtected
+눈 와서 미끄러워 본관 || B:본관 || m=rainProtected
 조용한 길로 유담관 || B:유담관 || u=quiet
 조용하게 가고 싶어 혜인관 || B:혜인관 || u=quiet
 사람 적은 길로 북악관 || B:북악관 || u=crowd
@@ -209,22 +210,22 @@ GS25 가고 싶어 || P:편의점 (북악관 ||
 그늘로 가고 싶어 청운관 || B:청운관 || u=shade
 오르막 없이 한림관 || B:한림관 || u=slope
 언덕 피해서 유담관 || B:유담관 || u=slope
-밝은 길로 기숙사 || B:외국인 생활관 || u=lighting
-어두운데 무서워 가로등 있는 길로 본관 || B:본관 || u=lighting
+밝은 길로 기숙사 || B:외국인 생활관 || m=nightSafe
+어두운데 무서워 가로등 있는 길로 본관 || B:본관 || m=nightSafe
 담배 피우고 북악관 갈래 || B:북악관 || u=smoking
-비 오고 사람 많으니까 실내로 청운관 || B:청운관 || p=indoor u=covered,crowd
+비 오고 사람 많으니까 실내로 청운관 || B:청운관 || p=indoor u=crowd m=rainProtected
 조용하고 계단 없는 길로 한림관 || B:한림관 || M=avoidStairs u=quiet
-휠체어인데 비 와요 유담관 || B:유담관 || M=avoidStairs,wheelchairNeeded u=wheelchair,covered
+휠체어인데 비 와요 유담관 || B:유담관 || M=avoidStairs,wheelchairNeeded m=accessible s=rainProtected
 짐 많고 사람 없는 길로 혜인관 || B:혜인관 || p=fewerStairs u=crowd
 # ── 시간 ──
-10분 안에 북악관 || B:북악관 || t=10
-5분밖에 없어 청운관 || B:청운관 || t=5
-수업 3분 남았어 한림관 7층 || B:한림관@7F || t=3
-오분 안에 유담관 가야돼 || B:유담관 || t=5
-15분 내로 문예관 || B:문예관 || t=15
+10분 안에 북악관 || B:북악관 || t=10 m=fastest
+5분밖에 없어 청운관 || B:청운관 || t=5 m=fastest
+수업 3분 남았어 한림관 7층 || B:한림관@7F || t=3 m=fastest
+오분 안에 유담관 가야돼 || B:유담관 || t=5 m=fastest
+15분 내로 문예관 || B:문예관 || t=15 m=fastest
 # ── 반어·함정(계단 허용) ──
-계단으로 빨리 혜인관 || B:혜인관 || ok
-계단이라도 괜찮으니 빨리 북악관 || B:북악관 || ok
+계단으로 빨리 혜인관 || B:혜인관 || ok m=fastest
+계단이라도 괜찮으니 빨리 북악관 || B:북악관 || ok m=fastest
 계단 상관없어 청운관 최단 || B:청운관 || ok
 계단 타고 한림관 3층 || B:한림관@3F || ok
 계단 써도 돼 유담관 || B:유담관 || ok
@@ -253,19 +254,19 @@ GS25 가고 싶어 || P:편의점 (북악관 ||
 나 지금 유담관 가야됨 || B:유담관 ||
 편의점ㄱ || P:편의점 (북악관 ||
 문예관 B1 엘베로 || B:문예관@B1 || e
-본관7층 빨리 || B:본관@7F ||
+본관7층 빨리 || B:본관@7F || m=fastest
 대일관 지하 2층 계단없이 || B:대일관@B2 || M=avoidStairs
-휠췌어로 혜인관 || B:혜인관 || M=avoidStairs,wheelchairNeeded u=wheelchair
+휠췌어로 혜인관 || B:혜인관 || M=avoidStairs,wheelchairNeeded m=accessible
 은주 2관 가는길 || B:은주관 ||
 기숙사 어케감 || B:외국인 생활관 ||
 북악관 지하1층 편의점 || P:편의점 (북악관 ||
 # ── 추가 조합 ──
 청운관 3층에서 계단 없이 한림관 5층 || B:한림관@5F || o=B:청운관@3F M=avoidStairs
-여기서 엘베 타고 문예관 12층까지 10분 안에 || B:문예관@12F || e t=10
-비 와서 실내로 북악관 편의점 || P:편의점 (북악관 || p=indoor u=covered
-유모차 끌고 비 안 맞게 기숙사 || B:외국인 생활관 || M=avoidStairs u=covered
+여기서 엘베 타고 문예관 12층까지 10분 안에 || B:문예관@12F || e t=10 s=fastest
+비 와서 실내로 북악관 편의점 || P:편의점 (북악관 || p=indoor m=rainProtected
+유모차 끌고 비 안 맞게 기숙사 || B:외국인 생활관 || M=avoidStairs m=accessible s=rainProtected
 2115번 정류장에서 계단 없이 유담관 || B:유담관 || o=P:2115번 M=avoidStairs
-후문에서 휠체어로 대일관 || B:대일관 || o=P:서문(후문) M=avoidStairs,wheelchairNeeded u=wheelchair
+후문에서 휠체어로 대일관 || B:대일관 || o=P:서문(후문) M=avoidStairs,wheelchairNeeded m=accessible
 짐 많아서 분수광장까지 || P:유담관 입구(1) || p=fewerStairs
 정문 말고 후문 || P:서문(후문) ||
 편의점 들러서 계단 없이 혜인관 || B:혜인관 || w=P:편의점 (북악관 M=avoidStairs
@@ -274,3 +275,30 @@ GS25 가고 싶어 || P:편의점 (북악관 ||
 한림관 4층 엘베로 || B:한림관 || e u=floor
 유담관 지하 3층 || B:유담관 || u=floor
 청운관에서 도서관 || - || o=B:청운관 u=place c
+# ── 경로 방식 7가지(2026-10-22 추가, SYNTHETIC) ──
+급해 북악관 가는 길 || B:북악관 || m=fastest
+수업 늦었어 한림관 5층 || B:한림관@5F || m=fastest
+지각이야 제일 빠른 길로 청운관 || B:청운관 || m=fastest
+서둘러야 돼 본관 || B:본관 || m=fastest
+얼른 유담관 가자 || B:유담관 || m=fastest
+캐리어가 무거워서 기숙사 || B:외국인 생활관 || p=fewerStairs m=accessible
+전동휠체어로 문예관 || B:문예관 || M=avoidStairs,wheelchairNeeded m=accessible
+유모차랑 같이 혜인관 가는 길 || B:혜인관 || M=avoidStairs m=accessible
+짐 많아서 계단 없이 북악관 || B:북악관 || M=avoidStairs
+휠체어로 계단 없이 유담관 || B:유담관 || M=avoidStairs,wheelchairNeeded m=accessible
+비 많이 와 우산 없어 청운관 || B:청운관 || m=rainProtected
+소나기 와서 한림관 || B:한림관 || m=rainProtected
+장마라 비 안 맞는 길로 1164번 정류장 || P:1164 || m=rainProtected
+밤에 기숙사 가는 길 || B:외국인 생활관 || m=nightSafe
+어두워서 무서워 본관까지 || B:본관 || m=nightSafe
+늦게 끝나서 후문까지 밝은 길로 || P:서문(후문) || m=nightSafe
+야간에 혼자 유담관 || B:유담관 || m=nightSafe
+새벽에 북악관 가는 길 || B:북악관 || m=nightSafe
+계단이 무서워 북악관 || B:북악관 || M=avoidStairs
+엘리베이터 있는 길로 대일관 5층 || B:대일관@5F || e
+밤인데 비 오고 급해 기숙사 || B:외국인 생활관 || m=nightSafe s=rainProtected,fastest
+휠체어로 밤에 혜인관 || B:혜인관 || M=avoidStairs,wheelchairNeeded m=accessible s=nightSafe
+유모차 끌고 엘베로 은주관 || B:은주관 || M=avoidStairs m=accessible s=preferElevator
+비 오는데 빨리 문예관 || B:문예관 || m=rainProtected s=fastest
+짐 많은데 밤이라 어두워 청운관 || B:청운관 || p=fewerStairs m=nightSafe s=avoidStairs
+엘베 타고 빨리 한림관 7층 || B:한림관@7F || e s=fastest
