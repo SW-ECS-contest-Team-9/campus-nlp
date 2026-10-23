@@ -36,8 +36,8 @@ def parse_line(line):
     g['destination'] = {**d, 'ambiguous': amb}
     o = {'useCurrentLocation': True, 'placeKey': None, 'buildingKey': None, 'floorKey': None, 'ambiguous': False}
     g['waypoints'], g['mandatory'], g['preferences'], g['unsupported'] = [], [], [], []
-    g['timeLimitMin'], elev, clar, ok = None, False, False, False
-    for k, v in re.findall(r'(\w+)(?:=(.*?))?(?=\s+(?:[owMptu]=|e(?:\s|$)|c(?:\s|$)|ok(?:\s|$))|$)', opts):
+    g['timeLimitMin'], elev, clar, ok, mode, sec = None, False, False, False, None, []
+    for k, v in re.findall(r'(\w+)(?:=(.*?))?(?=\s+(?:[owMptums]=|e(?:\s|$)|c(?:\s|$)|ok(?:\s|$))|$)', opts):
         if k == 'o':
             t, a = target(v)
             o = {**t, 'useCurrentLocation': False, 'ambiguous': a}
@@ -57,8 +57,13 @@ def parse_line(line):
             clar = True
         elif k == 'ok':
             ok = True
+        elif k == 'm':
+            mode = v
+        elif k == 's':
+            sec = v.split(',')
     g['origin'] = o
-    g['mode'] = 'preferElevator' if elev else ('avoidStairs' if ('avoidStairs' in g['mandatory'] or 'fewerStairs' in g['preferences']) else 'shortest')
+    g['mode'] = mode or ('preferElevator' if elev else ('avoidStairs' if ('avoidStairs' in g['mandatory'] or 'fewerStairs' in g['preferences']) else 'shortest'))
+    g['secondaryModes'] = sec
     g['needsClarification'] = clar or amb or dest == '-'
     g['stairsAllowed'] = ok
     return g

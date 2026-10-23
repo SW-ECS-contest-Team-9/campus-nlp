@@ -31,7 +31,7 @@ def keys(t):
 
 def score(gold, preds):
     n = len(gold)
-    m = dict(dest=0, origin=0, mand=0, mode=0, pref=0, time=0, viol=0, spurious_stairs=0, unsup_tp=0, unsup_gold=0, unsup_pred=0, clar_tp=0, clar_pred=0, clar_gold=0, parse_fail=0)
+    m = dict(dest=0, origin=0, mand=0, mode=0, sec=0, pref=0, time=0, viol=0, spurious_stairs=0, unsup_tp=0, unsup_gold=0, unsup_pred=0, clar_tp=0, clar_pred=0, clar_gold=0, parse_fail=0)
     errors = []
     for g in gold:
         p = preds.get(g['id'])
@@ -58,6 +58,7 @@ def score(gold, preds):
         m['viol'] += not gm <= pm
         m['spurious_stairs'] += g['stairsAllowed'] and 'avoidStairs' in pm
         m['mode'] += p.get('mode') == g['mode']
+        m['sec'] += list(p.get('secondaryModes') or []) == list(g.get('secondaryModes') or [])
         m['pref'] += set(p.get('preferences') or []) == set(g['preferences'])
         m['time'] += p.get('timeLimitMin') == g['timeLimitMin']
         gu, pu = set(g['unsupported']), unsup_kinds(p.get('unsupported'))
@@ -70,7 +71,7 @@ def score(gold, preds):
     return {
         'n': n, 'destination_acc': r(m['dest'], n), 'origin_acc': r(m['origin'], n),
         'mandatory_exact': r(m['mand'], n), 'mandatory_violations': m['viol'], 'spurious_avoidStairs_when_stairs_ok': m['spurious_stairs'],
-        'mode_acc': r(m['mode'], n), 'preferences_exact': r(m['pref'], n), 'time_acc': r(m['time'], n),
+        'mode_acc': r(m['mode'], n), 'secondary_modes_exact': r(m['sec'], n), 'preferences_exact': r(m['pref'], n), 'time_acc': r(m['time'], n),
         'unsupported_recall': r(m['unsup_tp'], m['unsup_gold']), 'unsupported_precision': r(m['unsup_tp'], m['unsup_pred']),
         'clarification_precision': r(m['clar_tp'], m['clar_pred']), 'clarification_recall': r(m['clar_tp'], m['clar_gold']),
         'parse_fail': m['parse_fail'],

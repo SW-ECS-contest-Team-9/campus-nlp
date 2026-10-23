@@ -143,15 +143,21 @@ const AVOID_STAIRS = /계단(?:ㄴㄴ|노노|x|ㄴ)|계단(?:은|이|을|도)?(?
 const STAIRS_OK = /계단(?:으로|이라도|도괜찮|괜찮|상관없|오케이|타고|써도|가능)/;
 const FEWER_STAIRS = /짐|캐리어|무거|박스|상자|힘들|피곤|지쳐|무릎|숨차|계단(?:적게|덜|최소|조금|좀덜)/;
 const ELEVATOR = /엘리베이터/;
+// 바퀴 달린 것: 휠체어·유모차는 필수(accessible), 캐리어는 선호(accessible 이지만 필수 아님)
+const WHEELS_HARD = /휠체어|유모차|전동스쿠터/;
+const WHEELS_SOFT = /캐리어/;
+const FAST = /빨리|빠른|빠르게|급해|급하|급한|서둘|늦었|지각|시간(?:이)?없|얼른|후딱|바빠/;
+const RAIN = /비(?:가|와|오|맞|안맞|올)|우산|지붕|눈(?:이)?와|눈(?:이)?오|소나기|장마|폭우/;
+const NIGHT = /밤|야간|새벽|어두|어둡|깜깜|캄캄|늦게|늦은|무서|밝은|가로등|불켜/;
+// 주 방식 고르는 순서. 필수(accessible > avoidStairs)가 늘 앞서고, 선호끼리는 이 순서.
+const SOFT_ORDER: Mode[] = ['nightSafe', 'rainProtected', 'accessible', 'preferElevator', 'avoidStairs', 'fastest'];
 const INDOOR = /실내|건물안|건물속|밖으로안|밖에안|안나가|밖에나가기싫|추워|추운|더워|더운|미세먼지/;
 const UNSUP: [RegExp, string, string][] = [
-  [/비(?:가|와|오|맞|안맞|올)|우산|지붕|눈(?:이)?와|눈(?:이)?오|소나기/, '비·지붕', '지도에 그 정보가 아직 없음(지붕 있는 길)'],
   [/조용/, '조용한 길', NO_DATA + '(소음)'],
   [/사람(?:이)?(?:적|없|안많|별로없)|붐비|북적|한산|혼잡|복잡하지않|덜붐|사람많은데|사람많은곳피/, '사람 적은 길', NO_DATA + '(붐빔)'],
   [/경치|예쁜|이쁜|산책|나무|꽃|풍경|분위기/, '경치 좋은 길', NO_DATA + '(경관)'],
   [/그늘|햇빛|햇볕|땡볕/, '그늘', NO_DATA + '(그늘)'],
-  [/오르막|언덕|경사(?:없|완만|낮|덜)|비탈/, '오르막 피하기', NO_DATA + '(경사 기준)'],
-  [/밝은|어두운|어둡|가로등|불켜/, '밝은 길', NO_DATA + '(조명)'],
+  [/오르막|언덕|경사(?:없|완만|낮|덜)|비탈/, '오르막 피하기', '오르막만 피하는 경로 방식이 아직 없음'],
   [/흡연|담배/, '흡연 구역', NO_DATA + '(흡연 구역)'],
   [/자판기|정수기|화장실들러|와이파이/, '편의시설 경유', NO_DATA + '(편의시설)'],
 ];
@@ -181,21 +187,29 @@ export function parseRouteRequest(text: string, pkg: MapPackage, lexicon?: Lexic
   const preferences: Preference[] = [];
   const stairsOk = /계단없이말고/.test(c) || (STAIRS_OK.test(c) && !/계단(?:으로|이라도)?(?:말고|없이|빼고)/.test(c));
   if (!stairsOk && AVOID_STAIRS.test(c)) mandatory.push('avoidStairs');
-  if (/휠체어/.test(c)) {
-    mandatory.push('wheelchairNeeded');
-    unsupported.push({ text: '휠체어', reason: '휠체어 통행 가능 여부(경사·폭·문턱)가 지도에 아직 없음. 계단만 확실히 피함' });
-  }
+  if (/휠체어/.test(c)) mandatory.push('wheelchairNeeded');
   if (!stairsOk && mandatory.indexOf('avoidStairs') < 0 && FEWER_STAIRS.test(c)) preferences.push('fewerStairs');
   if (INDOOR.test(c)) preferences.push('indoor');
   for (const [re, label, reason] of UNSUP) if (re.test(c)) unsupported.push({ text: label, reason });
 
-  let mode: Mode = 'shortest';
-  if (ELEVATOR.test(c) && !/엘리베이터(?:말고|없이|안|싫)/.test(c)) mode = 'preferElevator';
-  else if (mandatory.indexOf('avoidStairs') >= 0 || preferences.indexOf('fewerStairs') >= 0) mode = 'avoidStairs';
-
   let timeLimitMin: number | null = null;
   const tm = /(\d+|[일이삼사오육칠팔구십]+)분(?:안|내|이내|만에|밖에|남|뒤|후|까지)/.exec(c);
   if (tm) timeLimitMin = koNum(tm[1]);
+
+  // 방식: 길은 만들지 않고 조건만 고른다. 필수 조건이 있으면 그 방식이 주 방식, 선호는 보조로.
+  const hard: Mode | null = !stairsOk && WHEELS_HARD.test(c) ? 'accessible' : mandatory.indexOf('avoidStairs') >= 0 ? 'avoidStairs' : null;
+  const soft: Mode[] = [];
+  if (NIGHT.test(c.replace(/계단(?:은|이|을|도)?무서/g, ''))) soft.push('nightSafe');
+  if (RAIN.test(c) || preferences.indexOf('indoor') >= 0) soft.push('rainProtected');
+  if (!stairsOk && WHEELS_SOFT.test(c)) soft.push('accessible');
+  if (ELEVATOR.test(c) && !/엘리베이터(?:말고|없이|안|싫|기다리기싫)/.test(c)) soft.push('preferElevator');
+  if (preferences.indexOf('fewerStairs') >= 0) soft.push('avoidStairs');
+  if (FAST.test(c) || timeLimitMin !== null) soft.push('fastest');
+  const modes = SOFT_ORDER.filter(x => soft.indexOf(x) >= 0);
+  if (hard) modes.unshift(hard);
+  const all = uniq(modes);
+  const mode: Mode = all.length ? all[0] : 'shortest';
+  const secondaryModes = all.slice(1).filter(x => !(mode === 'accessible' && x === 'avoidStairs'));
 
   // 재확인
   let needsClarification: RouteRequest['needsClarification'] = null;
@@ -211,7 +225,7 @@ export function parseRouteRequest(text: string, pkg: MapPackage, lexicon?: Lexic
     needsClarification = { question: '출발지 "' + origin.text + '"이(가) 여러 곳입니다: ' + origin.candidates.map(x => x.name).join(' / ') + ' 중 어디인가요?' };
   }
 
-  return { v: 1, destination, origin, waypoints, mode, mandatory, preferences, timeLimitMin, unsupported, needsClarification };
+  return { v: 1, destination, origin, waypoints, mode, secondaryModes, mandatory, preferences, timeLimitMin, unsupported, needsClarification };
 }
 
 function koNum(s: string): number {
